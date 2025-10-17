@@ -180,6 +180,7 @@ func TestMapAddValidatorTx(t *testing.T) {
 	stakeOutOp := rosettaTransaction.Operations[2]
 	require.Equal(OpTypeStakeOutput, stakeOutOp.Metadata["type"])
 	require.Equal(uint64(2000000000), stakeOutOp.Metadata[MetadataValidatorWeight])
+	require.Equal(uint32(20000), stakeOutOp.Metadata[MetadataDelegationFee])
 }
 
 func TestMapAddPermissionlessValidatorTx(t *testing.T) {
@@ -217,6 +218,7 @@ func TestMapAddPermissionlessValidatorTx(t *testing.T) {
 	stakeOutOp := rosettaTransaction.Operations[2]
 	require.Equal(OpTypeStakeOutput, stakeOutOp.Metadata["type"])
 	require.Equal(uint64(2000000000), stakeOutOp.Metadata[MetadataValidatorWeight])
+	require.Equal(uint32(20000), stakeOutOp.Metadata[MetadataDelegationFee])
 }
 
 // TODO: Remove Post-Durango

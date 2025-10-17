@@ -391,6 +391,13 @@ func addValidatorMetadataToStakeOuts(ops *txOps, validator txs.ValidatorTx, star
 		out.Metadata[MetadataValidatorRewardsOwner] = getAddressArray(validator.ValidationRewardsOwner().(*secp256k1fx.OutputOwners), hrp)
 		out.Metadata[MetadataDelegationRewardsOwner] = getAddressArray(validator.DelegationRewardsOwner().(*secp256k1fx.OutputOwners), hrp)
 		out.Metadata[MetadataSubnetID] = validator.SubnetID().String()
+
+		switch v := validator.(type) {
+		case *txs.AddValidatorTx:
+			out.Metadata[MetadataDelegationFee] = v.DelegationShares
+		case *txs.AddPermissionlessValidatorTx:
+			out.Metadata[MetadataDelegationFee] = v.DelegationShares
+		}
 	}
 }
 
