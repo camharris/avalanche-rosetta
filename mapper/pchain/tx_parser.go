@@ -387,6 +387,7 @@ func addValidatorMetadataToStakeOuts(ops *txOps, validator txs.ValidatorTx, star
 		out.Metadata[MetadataValidatorNodeID] = validator.NodeID().String()
 		out.Metadata[MetadataStakingStartTime] = uint64(startTime.Unix())
 		out.Metadata[MetadataStakingEndTime] = uint64(validator.EndTime().Unix())
+		out.Metadata[MetadataValidatorWeight] = validator.Weight()
 		out.Metadata[MetadataValidatorRewardsOwner] = getAddressArray(validator.ValidationRewardsOwner().(*secp256k1fx.OutputOwners), hrp)
 		out.Metadata[MetadataDelegationRewardsOwner] = getAddressArray(validator.DelegationRewardsOwner().(*secp256k1fx.OutputOwners), hrp)
 		out.Metadata[MetadataSubnetID] = validator.SubnetID().String()
@@ -402,6 +403,7 @@ func addDelegatorMetadataToStakeOuts(ops *txOps, delegator txs.DelegatorTx, star
 		out.Metadata[MetadataValidatorNodeID] = delegator.NodeID().String()
 		out.Metadata[MetadataStakingStartTime] = uint64(startTime.Unix())
 		out.Metadata[MetadataStakingEndTime] = uint64(delegator.EndTime().Unix())
+		out.Metadata[MetadataValidatorWeight] = delegator.Weight()
 		out.Metadata[MetadataDelegatorRewardsOwner] = getAddressArray(delegator.RewardsOwner().(*secp256k1fx.OutputOwners), hrp)
 		out.Metadata[MetadataSubnetID] = delegator.SubnetID().String()
 	}

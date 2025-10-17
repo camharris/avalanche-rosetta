@@ -40,6 +40,7 @@ const (
 	MetadataValidatorNodeID  = "validator_node_id"
 	MetadataStakingStartTime = "staking_start_time"
 	MetadataStakingEndTime   = "staking_end_time"
+	MetadataValidatorWeight  = "validator_weight"
 	MetadataMessage          = "message"
 	MetadataSigner           = "signer"
 
