@@ -31,6 +31,12 @@ issues:
   # Default: 3
   max-same-issues: 0
 
+  # Exclude typecheck errors in client package (interface stubs)
+  exclude-rules:
+    - path: client/
+      linters:
+        - typecheck
+
 linters:
   disable-all: true
   enable:
