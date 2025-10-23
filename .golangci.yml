@@ -33,7 +33,7 @@ issues:
 
   # Exclude typecheck errors in client package (interface stubs)
   exclude-rules:
-    - path: client/
+    - path: 'client/.*\.go'
       linters:
         - typecheck
 
