@@ -70,3 +70,11 @@ func NewClient(ctx context.Context, endpoint string) (Client, error) {
 		ContractClient: NewContractClient(eth.Client),
 	}, nil
 }
+
+func (c *client) BalanceAt(ctx context.Context, address common.Address, blockNumber *big.Int) (*big.Int, error) {
+	return c.EthClient.BalanceAt(ctx, address, blockNumber)
+}
+
+func (c *client) GetAtomicUTXOs(ctx context.Context, addrs []ids.ShortID, sourceChain string, limit uint32, startAddress ids.ShortID, startUTXOID ids.ID, options ...rpc.Option) ([][]byte, ids.ShortID, ids.ID, error) {
+	return c.EvmClient.GetAtomicUTXOs(ctx, addrs, sourceChain, limit, startAddress, startUTXOID, options...)
+}

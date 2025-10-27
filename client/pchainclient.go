@@ -97,3 +97,7 @@ func NewPChainClient(_ context.Context, rpcBaseURL, indexerBaseURL string) PChai
 func (p pchainClient) GetAssetDescription(ctx context.Context, assetID string, options ...rpc.Option) (*avm.GetAssetDescriptionReply, error) {
 	return p.xChainClient.GetAssetDescription(ctx, assetID, options...)
 }
+
+func (p pchainClient) GetAtomicUTXOs(ctx context.Context, addrs []ids.ShortID, sourceChain string, limit uint32, startAddress ids.ShortID, startUTXOID ids.ID, options ...rpc.Option) ([][]byte, ids.ShortID, ids.ID, error) {
+	return p.platformvmClient.GetAtomicUTXOs(ctx, addrs, sourceChain, limit, startAddress, startUTXOID, options...)
+}

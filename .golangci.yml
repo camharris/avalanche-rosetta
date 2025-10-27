@@ -31,9 +31,6 @@ issues:
   # Default: 3
   max-same-issues: 0
 
-  exclude-dirs:
-    - client
-
 linters:
   disable-all: true
   enable:
