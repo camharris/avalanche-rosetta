@@ -31,6 +31,9 @@ issues:
   # Default: 3
   max-same-issues: 0
 
+  exclude-dirs:
+    - client
+
 linters:
   disable-all: true
   enable:
@@ -75,13 +78,6 @@ linters:
     - unused
     - usestdlibvars
     - whitespace
-
-  exclusions:
-    rules:
-      # Exclude typecheck errors in client package (interface stubs)
-      - path: 'client/.*\.go'
-        linters:
-          - typecheck
 
 linters-settings:
   depguard:
