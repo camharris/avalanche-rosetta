@@ -69,7 +69,7 @@ linters:
     - stylecheck
     - tagalign
     - testifylint
-    - typecheck
+    # - typecheck  # Cannot be disabled but causes errors on master due to library incompatibility (see PR #249)
     - unconvert
     - unparam
     - unused
