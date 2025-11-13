@@ -4,13 +4,15 @@ import (
 	"testing"
 
 	"github.com/ava-labs/coreth/params"
+	"github.com/ava-labs/coreth/plugin/evm"
 	"github.com/coinbase/rosetta-sdk-go/types"
 	"github.com/stretchr/testify/require"
 
-	ethtypes "github.com/ava-labs/coreth/core/types"
+	ethtypes "github.com/ava-labs/libevm/core/types"
 )
 
 func TestConfig(t *testing.T) {
+	evm.RegisterAllLibEVMExtras()
 	t.Run("online", func(t *testing.T) {
 		cfg := Config{
 			Mode:      "online",
